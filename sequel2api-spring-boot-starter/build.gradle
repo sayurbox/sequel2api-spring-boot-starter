@@ -47,6 +47,6 @@ publishing {
 dependencies {
     api(project(':sequel2api-spring-boot-app'))
     api(project(':sequel2api-spring-boot-autoconfigure'))
-    api("org.springframework.data:spring-data-jdbc")
+    implementation("org.springframework.data:spring-data-jdbc")
     implementation 'org.springframework.boot:spring-boot-starter'
 }
