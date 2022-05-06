@@ -18,14 +18,12 @@ repositories {
     mavenCentral()
 }
 
-/*
 jar {
     from {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
- */
 
 dependencyManagement {
     imports {
