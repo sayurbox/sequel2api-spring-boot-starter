@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java-library'
+}
+
+group = 'com.sayurbox.sequel2api.autoconfigure'
+version = '0.0.1'
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    //implementation ('org.springframework.boot:spring-boot-starter')
+
+    implementation ('org.springframework:spring-web')
+    implementation ('org.springframework:spring-webmvc')
+    implementation ('javax.servlet:javax.servlet-api:3.1.0')
+    implementation ('org.springframework.data:spring-data-jdbc:2.3.4')
+    implementation ('org.springframework.data:spring-data-commons:2.6.4')
+    testImplementation ('org.springframework.boot:spring-boot-starter-test')
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter('5.8.1')
+        }
+    }
+}

@@ -1,0 +1,28 @@
+database:
+  type: mysql
+  hostname: 'localhost'
+  port: 3308
+  username: root
+  password: root
+  name: public
+  overrideDataSource: 'dataSource'
+
+api:
+  - name: user_account_user_id
+    url: '/api/users/account/{id}'
+    singleResult: true
+    query: |
+      SELECT *
+      FROM accounts
+      WHERE user_id = :user_id
+      OR username = :name
+    queryParameters:
+      - name: name
+        required: true
+        defaultValue: false
+        binding: name
+        type: String
+    pathParameters:
+      - name: id
+        type: Long
+        binding: user_id

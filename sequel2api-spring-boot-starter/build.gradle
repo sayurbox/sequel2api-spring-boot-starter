@@ -1,0 +1,53 @@
+plugins {
+    id 'java-library'
+
+    id 'org.springframework.boot' version '2.6.6' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'maven-publish'
+
+}
+
+group 'com.sayurbox'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java-library'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+jar {
+
+    from {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            //from components.java
+            artifact jar
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+
+}
+
+dependencies {
+    api(project(':sequel2api-spring-boot-app'))
+    api(project(':sequel2api-spring-boot-autoconfigure'))
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+}
