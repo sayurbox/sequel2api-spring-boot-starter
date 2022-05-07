@@ -6,6 +6,7 @@ plugins {
 
 group = 'com.sayurbox.sequel2api.autoconfigure'
 version = '0.0.1'
+sourceCompatibility = '1.8'
 
 dependencyManagement {
     imports {
@@ -24,8 +25,9 @@ dependencies {
     implementation ('org.springframework:spring-web')
     implementation ('org.springframework:spring-webmvc')
     implementation ('javax.servlet:javax.servlet-api:3.1.0')
-    implementation ('org.springframework.data:spring-data-jdbc:2.3.4')
-    implementation ('org.springframework.data:spring-data-commons:2.6.4')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    //implementation ('org.springframework.data:spring-data-jdbc:2.3.4')
+    //implementation ('org.springframework.data:spring-data-commons:2.6.4')
     testImplementation ('org.springframework.boot:spring-boot-starter-test')
 }
 
