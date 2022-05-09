@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
     id 'org.springframework.boot' version '2.5.4' apply false
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    //id 'maven-publish'
+    id 'maven-publish'
 }
 
 group 'com.sayurbox'
