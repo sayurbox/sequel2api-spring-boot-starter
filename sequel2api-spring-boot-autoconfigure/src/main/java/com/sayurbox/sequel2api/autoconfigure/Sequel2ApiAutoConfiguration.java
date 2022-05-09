@@ -36,6 +36,7 @@ public class Sequel2ApiAutoConfiguration {
     @Autowired
     private ApplicationContext applicationContext;
 
+
     @Bean
     @ConditionalOnMissingBean
     public Root provideConfiguration() throws IOException {
@@ -57,11 +58,7 @@ public class Sequel2ApiAutoConfiguration {
             return new NamedParameterJdbcTemplate(ds);
         }
         HikariConfig hikariConfig = new HikariConfig();
-        String jdbcUrl = String.format("jdbc:mysql://%s:%d/%s?autoReconnect=true&useSSL=false",
-                db.getHostname(),
-                db.getPort(),
-                db.getName());
-        hikariConfig.setJdbcUrl(jdbcUrl);
+        hikariConfig.setJdbcUrl(db.jdbcUrl());
         hikariConfig.setUsername(db.getUsername());
         hikariConfig.setPassword(db.getPassword());
         hikariConfig.addDataSourceProperty("cachePrepStmts", "true" );

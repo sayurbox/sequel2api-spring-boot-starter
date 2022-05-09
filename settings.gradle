@@ -2,4 +2,4 @@ rootProject.name = 'sequel2api-spring-boot-starter'
 include('sequel2api-spring-boot-app')
 include('sequel2api-spring-boot-autoconfigure')
 include('sequel2api-spring-boot-starter')
-//include('demo')
+include('demo')

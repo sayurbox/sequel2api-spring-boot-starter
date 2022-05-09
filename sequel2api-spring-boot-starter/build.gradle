@@ -1,8 +1,8 @@
 plugins {
     id 'java-library'
-    id 'org.springframework.boot' version '2.6.6' apply false
+    id 'org.springframework.boot' version '2.5.4' apply false
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'maven-publish'
+    //id 'maven-publish'
 }
 
 group 'com.sayurbox'
@@ -33,6 +33,7 @@ dependencyManagement {
     }
 }
 
+/*
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -43,15 +44,15 @@ publishing {
     repositories {
         mavenLocal()
     }
-
 }
+
+ */
 
 dependencies {
     api(project(':sequel2api-spring-boot-app'))
     api(project(':sequel2api-spring-boot-autoconfigure'))
-    //implementation("org.springframework.data:spring-data-jdbc")
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation("org.springframework.data:spring-data-jdbc")
+    compileOnly 'org.springframework.boot:spring-boot-starter'
 }
 /*
 publishing {
@@ -65,5 +66,4 @@ publishing {
         mavenLocal()
     }
 }
-
  */

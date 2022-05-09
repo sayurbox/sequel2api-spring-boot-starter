@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.6' apply false
+    id 'org.springframework.boot' version '2.5.4' apply false
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java-library'
 }
@@ -22,12 +22,16 @@ repositories {
 dependencies {
     //implementation ('org.springframework.boot:spring-boot-starter')
 
-    implementation ('org.springframework:spring-web')
-    implementation ('org.springframework:spring-webmvc')
-    implementation ('javax.servlet:javax.servlet-api:3.1.0')
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    //implementation ('org.springframework.data:spring-data-jdbc:2.3.4')
-    //implementation ('org.springframework.data:spring-data-commons:2.6.4')
+    //compileOnly ('org.springframework:spring-web')
+    //compileOnly ('org.springframework:spring-webmvc')
+    //implementation ('javax.servlet:javax.servlet-api:3.1.0')
+
+    compileOnly ('org.springframework.boot:spring-boot-starter-web')
+
+
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation ('org.springframework.data:spring-data-jdbc:2.3.4')
+    implementation ('org.springframework.data:spring-data-commons:2.6.4')
     testImplementation ('org.springframework.boot:spring-boot-starter-test')
 }
 

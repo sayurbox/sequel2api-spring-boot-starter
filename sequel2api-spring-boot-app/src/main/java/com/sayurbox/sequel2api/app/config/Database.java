@@ -66,4 +66,13 @@ public class Database {
     public void setOverrideDataSource(String overrideDataSource) {
         this.overrideDataSource = overrideDataSource;
     }
+
+    public String jdbcUrl() {
+        if (type == DbType.mysql) {
+            return String.format("jdbc:mysql://%s:%d/%s?autoReconnect=true&useSSL=false",
+                    hostname, port, name);
+        }
+        return String.format("jdbc:postgres://%s:%d/%s",
+                hostname, port, name);
+    }
 }

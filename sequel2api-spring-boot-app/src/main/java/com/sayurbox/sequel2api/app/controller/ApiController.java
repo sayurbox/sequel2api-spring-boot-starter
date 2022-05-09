@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.springframework.web.util.pattern.PathPatternParser;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +44,7 @@ public class ApiController {
     @PostConstruct
     public void init() throws NoSuchMethodException {
         RequestMappingInfo.BuilderConfiguration options = new RequestMappingInfo.BuilderConfiguration();
-        options.setPatternParser(new PathPatternParser());
+        //options.setPatternParser(new PathPatternParser());
         for (Api p : root.getApi()) {
             initApi(p, options);
         }
