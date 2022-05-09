@@ -33,7 +33,6 @@ dependencyManagement {
     }
 }
 
-/*
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -46,24 +45,9 @@ publishing {
     }
 }
 
- */
-
 dependencies {
     api(project(':sequel2api-spring-boot-app'))
     api(project(':sequel2api-spring-boot-autoconfigure'))
     implementation("org.springframework.data:spring-data-jdbc")
     compileOnly 'org.springframework.boot:spring-boot-starter'
 }
-/*
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            //artifact jar
-        }
-    }
-    repositories {
-        mavenLocal()
-    }
-}
- */
