@@ -36,14 +36,18 @@ public class Sequel2ApiAutoConfiguration {
     @Autowired
     private ApplicationContext applicationContext;
 
-
     @Bean
     @ConditionalOnMissingBean
     public Root provideConfiguration() throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         mapper.findAndRegisterModules();
-        Root root = mapper.readValue(
-                new File(sequelApiProperties.getYamlLocation()), Root.class);
+        File file;
+        if (sequelApiProperties.getYamlLocation().startsWith("classpath:")) {
+            file = applicationContext.getResource(sequelApiProperties.getYamlLocation()).getFile();
+        } else {
+            file = new File(sequelApiProperties.getYamlLocation());
+        }
+        Root root = mapper.readValue(file, Root.class);
         logger.info("loaded root configuration {}", root);
         return root;
     }

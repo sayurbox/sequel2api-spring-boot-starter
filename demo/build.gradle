@@ -19,7 +19,7 @@ repositories {
 dependencies {
 
     //implementation files('libs/sequel2api-spring-boot-starter-1.0.0.jar')
-    //implementation 'com.github.andrisasuke:sequel2api-spring-boot-starter:7245896e1c'
+    //implementation 'com.github.andrisasuke:sequel2api-spring-boot-starter:843d849fa2'
 
     implementation project(':sequel2api-spring-boot-starter')
     //implementation project(':sequel2api-spring-boot-app')
