@@ -13,7 +13,7 @@ api:
     singleResult: true
     query: |
       SELECT *
-      FROM accounts
+      FROM accounts2
       WHERE user_id = :user_id
       OR username = :name
     queryParameters:
