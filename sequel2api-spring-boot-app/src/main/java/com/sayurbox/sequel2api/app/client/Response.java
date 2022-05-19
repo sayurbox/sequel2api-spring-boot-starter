@@ -1,5 +1,6 @@
 package com.sayurbox.sequel2api.app.client;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 public class Response {
@@ -44,6 +45,13 @@ public class Response {
         response.setData(data);
         response.setSuccess(true);
         return ResponseEntity.ok().body(response);
+    }
+
+    public static ResponseEntity<Response> internalErrorResponse(String error) {
+        Response response = new Response();
+        response.setError(error);
+        response.setSuccess(false);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
 }

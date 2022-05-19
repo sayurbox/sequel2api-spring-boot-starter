@@ -5,6 +5,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
 
+// ref https://stackoverflow.com/questions/56152340/how-to-conditionally-make-a-spring-boot-application-terminate-at-startup-based-o
 @ConfigurationProperties(prefix = "sequel2api.config")
 @Validated
 public class SequelApiProperties {
